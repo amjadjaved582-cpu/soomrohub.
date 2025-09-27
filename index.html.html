@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SoomroHub | Premium Perfumes — soomrohub.pk</title>
+  <meta name="description" content="SoomroHub — Premium perfumes. Cash on Delivery | 3-4 working days delivery | Contact on WhatsApp to order." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width='100' height='100' fill='%23000000'/><text x='50' y='55' font-size='50' text-anchor='middle' fill='%23fff'>S</text></svg>">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --panel:#0f0f0f;
+      --muted:#9a9a9a;
+      --accent:#d9b08c; /* a warm perfume-like gold */
+      --glass: rgba(255,255,255,0.04);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#000 0%, #070707 100%);color:#fff}
+    a{color:inherit;text-decoration:none}
+    header{position:fixed;top:18px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:10px 36px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#111111, #1a1a1a);display:grid;place-items:center;border:1px solid rgba(255,255,255,0.04)}
+    .logo .mark span{font-weight:800;color:var(--accent)}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{padding:10px 14px;border-radius:12px;font-weight:600;opacity:0.9}
+    nav a.cta{background:linear-gradient(90deg, rgba(217,176,140,0.12), rgba(217,176,140,0.06));border:1px solid rgba(217,176,140,0.15);color:var(--accent)}
+
+    /* HERO */
+    .hero{min-height:100vh;display:grid;align-items:center;padding:140px 6% 80px 6%;position:relative;overflow:hidden}
+    .hero::after{content:"";position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&s=7a8a5c1c');background-size:cover;background-position:center;filter:grayscale(12%) brightness(0.28) contrast(1.02);z-index:-3}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.7));z-index:-2}
+    .hero-inner{display:grid;grid-template-columns:1fr 460px;gap:48px;align-items:center}
+    .eyebrow{color:var(--muted);letter-spacing:1px;font-weight:600}
+    h1{font-size:46px;margin:8px 0 14px;line-height:1.02}
+    p.lead{color:var(--muted);max-width:62ch}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;padding:22px;border:1px solid rgba(255,255,255,0.04);backdrop-filter: blur(4px)}
+
+    /* product teaser */
+    .product-teaser{display:flex;flex-direction:column;gap:12px}
+    .bottle{width:100%;height:360px;border-radius:14px;overflow:hidden;display:grid;place-items:center;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.4));}
+    .bottle img{width:80%;transform:translateY(0);transition:transform .9s cubic-bezier(.2,.9,.25,1)}
+    .bottle:hover img{transform:translateY(-8px) rotate(-2deg)}
+
+    /* long content */
+    main{padding:40px 6% 120px}
+    .section{padding:64px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .section .inner{max-width:1100px;margin:0 auto}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+
+    .product{background:var(--panel);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:16px;align-items:center}
+    .product img{width:96px;height:96px;border-radius:12px;object-fit:cover}
+    .product h4{margin:0;font-size:18px}
+    .price{font-weight:800;color:var(--accent)}
+
+    /* features */
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .feature{background:var(--glass);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* order box */
+    .order-box{position:sticky;top:120px}
+    .order-box .big{font-size:20px;font-weight:700}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(90deg,var(--accent),rgba(217,176,140,0.82));color:#000}
+
+    /* FAQ & contact */
+    .faqlist{display:grid;gap:12px}
+    .faq{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px;border-radius:12px}
+
+    footer{padding:40px 6%;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:1000px){.hero-inner{grid-template-columns:1fr} .product-teaser{order:2} .order-box{position:relative;top:0}}
+    @media (max-width:700px){.grid{grid-template-columns:1fr} .features{grid-template-columns:1fr} header{padding:10px 18px}}
+
+    /* subtle animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.9,.25,1)}
+    .reveal.show{opacity:1;transform:none}
+
+    /* micro-interactions */
+    .floating{animation:floater 6s ease-in-out infinite}
+    @keyframes floater{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+    /* big hero shimmer */
+    .shimmer{position:relative;overflow:hidden}
+    .shimmer::after{content:"";position:absolute;inset:-30%  -30%;background:linear-gradient(120deg, transparent 45%, rgba(255,255,255,0.05) 50%, transparent 55%);transform:rotate(25deg);animation:shimmer 6s linear infinite}
+    @keyframes shimmer{0%{transform:translateX(-100%) rotate(25deg)}100%{transform:translateX(100%) rotate(25deg)}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="mark"><span>S</span></div>
+      <div>
+        <div style="font-weight:800;letter-spacing:0.6px">SoomroHub</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">soomrohub.pk — premium perfumes</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#howto">How to Order</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#contact" class="cta">Order on WhatsApp</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow reveal">Premium Fragrances — Crafted for You</div>
+        <h1 class="reveal">SoomroHub — Exquisite Perfumes &amp; Gift Sets</h1>
+        <p class="lead reveal">Welcome to <strong>SoomroHub</strong>. We curate high-quality perfumes that linger. Discover signature scents, long-lasting formulations, and beautifully packaged bottles — all on a dark, elegant aesthetic crafted to match the aura of luxury.</p>
+
+        <div style="margin-top:22px;display:flex;gap:12px;align-items:center" class="reveal">
+          <a class="btn" href="#products">Shop Signature Scents</a>
+          <a style="padding:10px 12px;background:transparent;border-radius:12px;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#contact">Contact Us</a>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:18px;color:var(--muted)" class="reveal">
+          <div><strong style="color:var(--accent)">Cash on Delivery</strong><div style="font-size:13px">Pay when you receive</div></div>
+          <div><strong style="color:var(--accent)">3–4 Working Days</strong><div style="font-size:13px">Delivery across Pakistan*</div></div>
+        </div>
+      </div>
+
+      <aside class="card product-teaser floating shimmer">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-size:13px;color:var(--muted);font-weight:700">Limited Edition</div>
+            <h3 style="margin:6px 0">Noir Velvet — Signature</h3>
+            <div style="color:var(--muted);font-size:14px">An oriental woody fragrance with amber and leather notes. Long lasting 8–10 hours.</div>
+            <div style="margin-top:12px"><span class="price">PKR 2,499</span></div>
+          </div>
+          <div class="bottle" style="width:160px;box-shadow:0 8px 30px rgba(0,0,0,0.6)">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6e309f2c" alt="perfume bottle">
+          </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px;justify-content:space-between;align-items:center">
+          <div style="font-size:13px;color:var(--muted)">Free gift wrap on orders over PKR 3,000</div>
+          <a href="#contact" class="btn">Order via WhatsApp</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <section id="products" class="section">
+      <div class="inner">
+        <h2 class="reveal">Our Collections</h2>
+        <p class="reveal" style="color:var(--muted)">Explore our curated collections — from fresh florals to deep orientals. Below are featured products to get you started.</p>
+
+        <div class="grid" style="margin-top:22px">
+          <!-- product 1 -->
+          <div class="product reveal">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f2f6c6f" alt="bottle">
+            <div>
+              <h4>Noir Velvet — Signature</h4>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Top: Bergamot, Saffron — Heart: Rose, Jasmine — Base: Amber, Leather</div>
+              <div style="margin-top:8px" class="price">PKR 2,499</div>
+            </div>
+          </div>
+
+          <!-- product 2 -->
+          <div class="product reveal">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5fb6f5d1" alt="bottle">
+            <div>
+              <h4>Blossom Aura — Floral</h4>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">A light, feminine scent with peony and white musk — perfect for daytime.</div>
+              <div style="margin-top:8px" class="price">PKR 1,899</div>
+            </div>
+          </div>
+
+          <!-- product 3 -->
+          <div class="product reveal">
+            <img src="https://images.unsplash.com/photo-1523293839882-1903d8da6b9f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3b5c6f9a" alt="bottle">
+            <div>
+              <h4>Midnight Oud — Intense</h4>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">A deep oud-based scent with vanilla and spice — unisex, evening-wear.</div>
+              <div style="margin-top:8px" class="price">PKR 3,299</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="#contact">Order on WhatsApp — 0302 139 0480</a>
+          <a style="padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#faq">Read FAQs</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="howto" class="section">
+      <div class="inner">
+        <h2 class="reveal">How to Order</h2>
+        <p class="reveal" style="color:var(--muted)">We keep ordering simple — no complicated carts or checkout flows. To place an order, follow the steps below.</p>
+
+        <div class="features" style="margin-top:18px">
+          <div class="feature reveal">
+            <h3>1) Browse & Choose</h3>
+            <p style="color:var(--muted)">Explore our collections and note the product name you like (for example: "Noir Velvet — Signature").</p>
+          </div>
+          <div class="feature reveal">
+            <h3>2) Contact on WhatsApp</h3>
+            <p style="color:var(--muted)">Message us on WhatsApp to confirm the product, quantity, and address. Use this number: <strong>03021390480</strong> or +44 7599 682960 (UK line).</p>
+          </div>
+          <div class="feature reveal">
+            <h3>3) Cash on Delivery</h3>
+            <p style="color:var(--muted)">We offer Cash on Delivery. Pay the courier when your order arrives.</p>
+          </div>
+          <div class="feature reveal">
+            <h3>4) Delivery & Confirmation</h3>
+            <p style="color:var(--muted)">Orders typically arrive in <strong>3 to 4 working days</strong> (business days), depending on your location.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="delivery" class="section">
+      <div class="inner">
+        <h2 class="reveal">Delivery, Returns &amp; Policies</h2>
+        <div style="display:flex;gap:24px;margin-top:18px;align-items:flex-start;flex-wrap:wrap">
+          <div style="flex:1;min-width:320px" class="reveal">
+            <h4>Delivery</h4>
+            <p style="color:var(--muted)">Once you confirm an order via WhatsApp, we prepare and ship it immediately. Delivery time is usually <strong>3–4 working days</strong> from shipment. We will share tracking updates when available.</p>
+
+            <h4 style="margin-top:12px">Returns & Faults</h4>
+            <p style="color:var(--muted)">If you find a fault, or simply don't like the product, contact us on WhatsApp with photos and details. Our returns process:</p>
+            <ol style="color:var(--muted)">
+              <li>Contact us on WhatsApp: <strong>03021390480</strong> OR <strong>+447599682960</strong> OR <strong>03360119151</strong>.</li>
+              <li>Explain the fault or reason for return; attach photos if applicable.</li>
+              <li>Ship the product back once approved by our team.</li>
+              <li>We will process the refund within <strong>7 days</strong> after we receive the returned item and inspect it.</li>
+            </ol>
+          </div>
+
+          <div style="width:320px" class="card reveal">
+            <div style="font-size:13px;color:var(--muted)">Order Help</div>
+            <div style="margin-top:8px;font-weight:800">Order via WhatsApp</div>
+            <div style="margin-top:6px;color:var(--muted)">Send product name, quantity & delivery address via WhatsApp and our team will confirm stock & shipping.</div>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <a class="btn" href="https://wa.me/923021390480?text=Hello%20SoomroHub%20I%20would%20like%20to%20order%20%3A">WhatsApp PK +92 302 139 0480</a>
+              <a class="btn" href="https://wa.me/447599682960?text=Hello%20SoomroHub%20I%20would%20like%20to%20order%20%3A">WhatsApp UK +44 7599 682960</a>
+            </div>
+            <div style="margin-top:12px;color:var(--muted);font-size:13px">Cash on Delivery • Secure packaging • Gift wrap available</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="inner">
+        <h2 class="reveal">Frequently Asked Questions</h2>
+        <div class="faqlist" style="margin-top:12px">
+          <div class="faq reveal"><strong>Q:</strong> Can I cancel after ordering? <br><strong>A:</strong> Contact us on WhatsApp immediately. If the order hasn't shipped we can cancel and refund; if already shipped, please follow the return process.</div>
+          <div class="faq reveal"><strong>Q:</strong> Do you ship internationally? <br><strong>A:</strong> At present we ship within Pakistan. For international customers, contact our UK number for guidance (+44 7599 682960).</div>
+          <div class="faq reveal"><strong>Q:</strong> Are these original fragrances? <br><strong>A:</strong> We source high-quality formulations and curated originals inspired by popular scent families. We guarantee careful quality checks before shipping.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="inner">
+        <h2 class="reveal">Contact & Support</h2>
+        <div style="display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;margin-top:18px">
+          <div style="flex:1;min-width:360px" class="reveal">
+            <p style="color:var(--muted)">Prefer to talk? Use WhatsApp or call our help lines. We respond quickly during business hours.</p>
+            <ul style="color:var(--muted);line-height:1.8">
+              <li><strong>Order / WhatsApp (PK):</strong> <a href="https://wa.me/923021390480">0302 139 0480</a></li>
+              <li><strong>UK Line:</strong> <a href="https://wa.me/447599682960">+44 7599 682960</a></li>
+              <li><strong>Help Line:</strong> <a href="tel:+923360119151">0336 011 9151</a></li>
+              <li><strong>Email:</strong> <a href="mailto:hello@soomrohub.pk">hello@soomrohub.pk</a></li>
+            </ul>
+
+            <div style="margin-top:18px">
+              <form id="quickOrder" onsubmit="submitOrder(event)" class="card">
+                <div style="display:flex;gap:8px;flex-direction:column">
+                  <label style="font-size:13px;color:var(--muted)">Product name</label>
+                  <input id="prod" placeholder="e.g. Noir Velvet — Signature" required style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff">
+
+                  <label style="font-size:13px;color:var(--muted)">Your name</label>
+                  <input id="name" placeholder="Your full name" required style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff">
+
+                  <label style="font-size:13px;color:var(--muted)">Delivery address</label>
+                  <textarea id="addr" placeholder="Full delivery address" required style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff"></textarea>
+
+                  <label style="font-size:13px;color:var(--muted)">Phone (WhatsApp)</label>
+                  <input id="phone" placeholder="e.g. +923021390480" required style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff">
+
+                  <div style="display:flex;gap:8px;align-items:center;justify-content:flex-end">
+                    <button class="btn" type="submit">Send Order via WhatsApp</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div style="width:360px;min-width:260px" class="reveal">
+            <div class="card">
+              <h4 style="margin:0">Why shop with SoomroHub?</h4>
+              <ul style="color:var(--muted);margin-top:8px;line-height:1.7">
+                <li>Hand-curated perfumes selected for quality & longevity.</li>
+                <li>Secure COD delivery across Pakistan.</li>
+                <li>Quick support via WhatsApp & phone.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="inner">
+        <h2 class="reveal">Stories & Scent Notes</h2>
+        <p class="reveal" style="color:var(--muted)">A longer informative section about perfume families, how to choose a scent, layering, and storage tips — written for customers who want to learn and explore.</p>
+
+        <div style="margin-top:18px;color:var(--muted)">
+          <h4>Fragrance families</h4>
+          <p>Fresh — Citrus, aquatic; Floral — rose, jasmine, peony; Oriental — amber, vanilla, spice; Woody — cedar, sandalwood, oud. Each family carries moods and occasions — day vs night, casual vs formal. Our collection includes samples from each family.</p>
+
+          <h4 style="margin-top:12px">How to apply & make it last</h4>
+          <ol>
+            <li>Apply to pulse points: wrists, inner elbows, behind ears.</li>
+            <li>Moisturize skin beforehand to improve longevity.</li>
+            <li>Store bottles in a cool, dark place away from sunlight.</li>
+          </ol>
+
+          <h4 style="margin-top:12px">Gift & packaging</h4>
+          <p>We offer premium gift wrapping and personalized notes. Choose gift wrap at the time of order via WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-weight:800">SoomroHub</div>
+        <div style="color:var(--muted);font-size:13px">soomrohub.pk • Premium perfumes</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="color:var(--muted);font-size:13px">Order / WhatsApp: <a href="https://wa.me/923021390480">0302 139 0480</a></div>
+        <div style="color:var(--muted);font-size:13px">Help: <a href="tel:+923360119151">0336 011 9151</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){entry.target.classList.add('show')} 
+      });
+    },{threshold:0.12});
+    reveals.forEach(r=>observer.observe(r));
+
+    // Quick order form -> open WhatsApp with prefilled message
+    function submitOrder(e){
+      e.preventDefault();
+      const prod = encodeURIComponent(document.getElementById('prod').value.trim());
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const addr = encodeURIComponent(document.getElementById('addr').value.trim());
+      const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+      if(!prod||!name||!addr||!phone) return alert('Please fill all fields');
+      const text = `Hello SoomroHub, I would like to order:%0AProduct: ${prod}%0AName: ${name}%0APhone: ${phone}%0AAddress: ${addr}`;
+      // open wa.me with PK number by default
+      const url = 'https://wa.me/923021390480?text=' + text;
+      window.open(url,'_blank');
+    }
+
+    // tiny accessibility: allow Enter to submit on phone input
+    document.getElementById('phone').addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ submitOrder(new Event('submit')) } });
+  </script>
+</body>
+</html>
